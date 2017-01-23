@@ -1,10 +1,11 @@
 
 var YOUTUBE_BASE_URL = 'https://www.googleapis.com/youtube/v3/search';
-var APIkey = 'AIzaSyBSDFze2FT44H1_A0_Havt8SXbHVTwe6CY'
+var APIkey = 'AIzaSyCZWAlyr7bWjvsE9Is8QZNZxJhsRIhmjgo'
 
 function getDataFromAPI(searchTerm, callback) {    
     var query = {
       part: 'snippet',
+      type: 'video',
       key: APIkey,
       q: searchTerm
     }
@@ -12,7 +13,6 @@ function getDataFromAPI(searchTerm, callback) {
 }
 
 function displayYouTubeSearchData(data) {
-    var results = '';
     var resultElement = '';
     
     if(data) {
@@ -24,7 +24,6 @@ function displayYouTubeSearchData(data) {
                           '<img class="card-img-top" src="'+ imageLink +'" />' +
                           '</a>' +
                         '</span>';
-          //var elem = '<p class="card">' + image + '</p>'; 
 
           resultElement += image;
         });
